@@ -90,8 +90,8 @@ function main() {
   cd "${TMP_DIR}"
   tar -czvf "${TMP_TAR_NAME}" "${ARC_NAME}/"*
   cd -
-  mv -f "${TMP_TAR_NAME}" "${DEST_FILE}"
-  cp "${TMP_TAR_NAME}" "${JENKINS_HOME}/jenkins_backup_latest.tar.gz"
+  mv -f "${TMP_TAR_NAME}" "${DEST_FILE}" && TMP_DEST_FILE=${DEST_FILE}
+  cp "${TMP_DEST_FILE}" "${JENKINS_HOME}/jenkins_backup_latest.tar.gz"
 
   cleanup
 
