@@ -13,6 +13,7 @@ readonly TMP_DIR="${CUR_DIR}/tmp"
 readonly ARC_NAME="jenkins-backup"
 readonly ARC_DIR="${TMP_DIR}/${ARC_NAME}"
 readonly TMP_TAR_NAME="${TMP_DIR}/archive.tar.gz"
+readonly JNK_BCP_DIR="/data/jenkins_backup"
 
 
 function usage() {
@@ -91,7 +92,7 @@ function main() {
   tar -czvf "${TMP_TAR_NAME}" "${ARC_NAME}/"*
   cd -
   mv -f "${TMP_TAR_NAME}" "${DEST_FILE}" && TMP_DEST_FILE=${DEST_FILE}
-  cp "${TMP_DEST_FILE}" "${JENKINS_HOME}/jenkins_backup_latest.tar.gz"
+  cp "${TMP_DEST_FILE}" "${JNK_BCP_DIR}/jenkins_backup_latest.tar.gz"
 
   cleanup
 
